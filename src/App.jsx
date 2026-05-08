@@ -1,6 +1,26 @@
+import { useEffect, useMemo, useState } from 'react'
+import hero1 from './assets/hero-1.png'
+import hero2 from './assets/hero-2.png'
+import hero3 from './assets/hero-3.png'
+import hero4 from './assets/hero-4.png'
+import hero5 from './assets/hero-5.png'
+import hero6 from './assets/hero-6.png'
 import './App.css'
 
 function App() {
+  const heroImages = useMemo(
+    () => [hero1, hero2, hero3, hero4, hero5, hero6],
+    [],
+  )
+  const [heroIdx, setHeroIdx] = useState(0)
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setHeroIdx((i) => (i + 1) % heroImages.length)
+    }, 4500)
+    return () => window.clearInterval(id)
+  }, [heroImages.length])
+
   const products = [
     {
       name: 'Doctor Schedule Manager',
@@ -39,6 +59,16 @@ function App() {
 
       <main className="main">
         <section className="hero" aria-label="Hero">
+          <div className="heroMedia" aria-hidden="true">
+            {heroImages.map((src, idx) => (
+              <div
+                key={src}
+                className={`heroSlide ${idx === heroIdx ? 'isActive' : ''}`}
+                style={{ backgroundImage: `url(${src})` }}
+              />
+            ))}
+            <div className="heroOverlay" />
+          </div>
           <div className="heroInner">
             <p className="kicker">Empowering Future Innovators</p>
             <h1 className="headline">Built products. Real impact.</h1>
@@ -59,8 +89,20 @@ function App() {
                 Open ER Wait Time
               </a>
             </div>
+
+            <div className="heroDots" role="tablist" aria-label="Hero images">
+              {heroImages.map((_, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  className={`heroDot ${idx === heroIdx ? 'isActive' : ''}`}
+                  aria-label={`Show hero image ${idx + 1}`}
+                  aria-pressed={idx === heroIdx}
+                  onClick={() => setHeroIdx(idx)}
+                />
+              ))}
+            </div>
           </div>
-          <div className="heroGlow" aria-hidden="true" />
         </section>
 
         <section id="products" className="section">

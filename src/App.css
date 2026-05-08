@@ -57,8 +57,40 @@
 .hero {
   position: relative;
   overflow: hidden;
-  padding: 78px 0 52px;
+  padding: 86px 0 62px;
   border-bottom: 1px solid var(--border);
+}
+
+.heroMedia {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.heroSlide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.02);
+  transition:
+    opacity 900ms ease,
+    transform 1400ms ease;
+  filter: saturate(1.05) contrast(1.02);
+}
+
+.heroSlide.isActive {
+  opacity: 1;
+  transform: scale(1.0);
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.38) 58%, rgba(0, 0, 0, 0.18) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.46) 0%, rgba(0, 0, 0, 0.16) 45%, rgba(0, 0, 0, 0.55) 100%);
 }
 
 .heroInner {
@@ -69,27 +101,15 @@
   z-index: 1;
 }
 
-.heroGlow {
-  position: absolute;
-  inset: -40% -10% auto -10%;
-  height: 520px;
-  background:
-    radial-gradient(closest-side at 20% 55%, rgba(170, 59, 255, 0.25), transparent 60%),
-    radial-gradient(closest-side at 72% 20%, rgba(59, 130, 246, 0.18), transparent 55%),
-    radial-gradient(closest-side at 80% 80%, rgba(16, 185, 129, 0.12), transparent 55%);
-  filter: blur(22px);
-  pointer-events: none;
-}
-
 .kicker {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   padding: 8px 12px;
-  border: 1px solid var(--border);
-  background: color-mix(in oklab, var(--social-bg) 68%, transparent);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 999px;
-  color: var(--text-h);
+  color: rgba(255, 255, 255, 0.92);
   font-size: 14px;
   letter-spacing: 0.24px;
   text-transform: uppercase;
@@ -100,6 +120,8 @@
   font-size: clamp(36px, 5vw, 56px);
   line-height: 1.05;
   letter-spacing: -1.2px;
+  color: rgba(255, 255, 255, 0.96);
+  text-shadow: rgba(0, 0, 0, 0.35) 0 10px 30px;
 }
 
 .subhead {
@@ -107,6 +129,7 @@
   font-size: 18px;
   line-height: 1.55;
   margin: 0;
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .heroCtas {
@@ -154,12 +177,44 @@
 }
 
 .btnGhost {
-  color: var(--text-h);
-  background: color-mix(in oklab, var(--social-bg) 70%, transparent);
-  border-color: var(--border);
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.22);
 }
 .btnGhost:hover {
-  background: color-mix(in oklab, var(--social-bg) 92%, transparent);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.heroDots {
+  display: flex;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.heroDot {
+  inline-size: 10px;
+  block-size: 10px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  transition:
+    transform 120ms ease,
+    background 180ms ease,
+    border-color 180ms ease;
+}
+.heroDot:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.28);
+}
+.heroDot.isActive {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.85);
+}
+.heroDot:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 3px;
 }
 
 .section {
