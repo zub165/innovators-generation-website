@@ -10,7 +10,7 @@ function App() {
     {
       name: 'Doctor On Call',
       tagline: 'On-call coverage and workflow',
-      href: 'https://docsoncalls.com/#/shell/0',
+      href: 'https://docsoncalls.com/',
     },
     {
       name: 'ER Wait Time',

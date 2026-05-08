@@ -5,7 +5,7 @@ React frontend homepage that showcases our products.
 ## Products
 
 - Doctor Schedule Manager: `https://schedulemygroup.com/#settings`
-- Doctor On Call: `https://docsoncalls.com/#/shell/0`
+- Doctor On Call: `https://docsoncalls.com/`
 - ER Wait Time: `https://mywaitime.com/#chat`
 
 ## Run locally
