@@ -339,6 +339,30 @@
   padding: 18px 0;
 }
 
+.footerLegal {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.footerLegal a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.footerLegal a:hover {
+  text-decoration: underline;
+}
+
+.footerLegal span {
+  color: var(--muted);
+}
+
 .footerText {
   width: min(1120px, calc(100% - 40px));
   margin: 0 auto;

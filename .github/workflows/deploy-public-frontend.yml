@@ -1,0 +1,31 @@
+name: Deploy public site (compiled only)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ig-public-frontend
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Build dist
+        run: ./scripts/build_dist.sh
+      - name: Deploy to public repo
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          token: ${{ secrets.PUBLIC_FRONTEND_DEPLOY_TOKEN }}
+          repository-name: zub165/innovators-generation-web
+          branch: main
+          folder: dist
+          single-commit: true
+          commit-message: "deploy: ${{ github.sha }}"

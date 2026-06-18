@@ -168,6 +168,13 @@ function App() {
       </main>
 
       <footer className="footer">
+        <nav className="footerLegal" aria-label="Legal">
+          <a href="/privacy.html">Privacy Policy</a>
+          <span aria-hidden="true">·</span>
+          <a href="/support.html">Support</a>
+          <span aria-hidden="true">·</span>
+          <a href="/delete.html">Delete Account</a>
+        </nav>
         <p className="footerText">
           © {new Date().getFullYear()} Innovators Generation. All rights
           reserved.
