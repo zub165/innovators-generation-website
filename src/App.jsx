@@ -427,7 +427,7 @@ function App() {
                   Share what you need and we&apos;ll respond with the fastest path to launch.
                 </p>
                 <div className="contactActions">
-                  <a className="btn btnPrimary" href="mailto:info@innovatorsgeneration.com">
+                  <a className="btn btnPrimary" href="mailto:admin@innovatorsgeneration.com">
                     Email us
                     <Icon name="chat" size={15} />
                   </a>
