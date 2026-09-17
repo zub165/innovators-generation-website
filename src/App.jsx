@@ -436,8 +436,6 @@ function App() {
                   </a>
                 </div>
                 <div className="contactMails">
-                  <a href="mailto:info@innovatorsgeneration.com">info@innovatorsgeneration.com</a>
-                  <span aria-hidden="true">·</span>
                   <a href="mailto:admin@innovatorsgeneration.com">admin@innovatorsgeneration.com</a>
                 </div>
               </div>
