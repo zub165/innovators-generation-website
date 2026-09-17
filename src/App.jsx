@@ -41,6 +41,7 @@ function Icon({ name, size = 22 }) {
       </>
     ),
     check: <path d="M4 12.5 9.5 18 20 6.5" />,
+    play: <path d="M5 3.2 17.5 12 5 20.8V3.2z" fill="currentColor" stroke="none" />,
   }
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...strokeProps}>
@@ -146,6 +147,7 @@ const products = [
     tagline: 'AI-powered medical staff scheduling',
     desc: 'Plan and assign shifts with AI assistance, availability insights, and coverage you can trust.',
     href: 'https://schedulemygroup.com/#settings',
+    storeUrl: 'https://play.google.com/store/apps/details?id=com.doctorschedule.app',
     icon: 'calendar',
     features: ['AI-assisted shift scheduling', 'Staff availability views', 'Settings-driven workflow'],
   },
@@ -154,6 +156,7 @@ const products = [
     tagline: 'On-call coverage and workflow',
     desc: 'Keep call rotations moving with structured coverage, clear handoffs, and minimal friction.',
     href: 'https://docsoncalls.com/',
+    storeUrl: 'https://play.google.com/store/apps/details?id=com.doctoroncall.emr',
     icon: 'chat',
     features: ['Structured call rotations', 'Coverage handoff flows', 'Team-wide visibility'],
   },
@@ -162,6 +165,7 @@ const products = [
     tagline: 'Real-time patient experience, AI chat',
     desc: 'Give patients live wait-time clarity plus an AI chat that answers questions instantly.',
     href: 'https://mywaitime.com/#chat',
+    storeUrl: 'https://play.google.com/store/apps/details?id=com.easytechnologiez.ERTime',
     icon: 'pulse',
     features: ['Live wait-time estimates', 'AI chat for common questions', 'Patient-first design'],
   },
@@ -352,16 +356,29 @@ function App() {
                           </li>
                         ))}
                       </ul>
-                      <a
-                        className="cardLink"
-                        href={product.href}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        aria-label={`Open ${product.name}`}
-                      >
-                        Open product
-                        <span className="arrow">→</span>
-                      </a>
+                      <div className="cardActions">
+                        <a
+                          className="cardLink"
+                          href={product.href}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          aria-label={`Open ${product.name} web app`}
+                        >
+                          Open web app
+                          <span className="arrow">→</span>
+                        </a>
+                        <a
+                          className="cardLink cardLinkStore"
+                          href={product.storeUrl}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          aria-label={`${product.name} on Google Play`}
+                        >
+                          <Icon name="play" size={15} />
+                          Google Play
+                          <span className="arrow">→</span>
+                        </a>
+                      </div>
                     </div>
                   </article>
                 </Reveal>

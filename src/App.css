@@ -684,8 +684,13 @@
   background: color-mix(in oklab, var(--c1) 14%, transparent);
 }
 
-.cardLink {
+.cardActions {
   margin-top: auto;
+  display: grid;
+  gap: 10px;
+}
+
+.cardLink {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -703,6 +708,15 @@
 
 .cardLink:hover {
   background: color-mix(in oklab, var(--c1) 20%, var(--card));
+}
+
+.cardLinkStore {
+  background: var(--card);
+  border-color: var(--border-strong);
+}
+
+.cardLinkStore:hover {
+  background: var(--accent-bg);
 }
 
 .arrow {
