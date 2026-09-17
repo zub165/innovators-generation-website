@@ -435,7 +435,11 @@ function App() {
                     See products
                   </a>
                 </div>
-                <p className="contactMail">info@innovatorsgeneration.com</p>
+                <div className="contactMails">
+                  <a href="mailto:info@innovatorsgeneration.com">info@innovatorsgeneration.com</a>
+                  <span aria-hidden="true">·</span>
+                  <a href="mailto:admin@innovatorsgeneration.com">admin@innovatorsgeneration.com</a>
+                </div>
               </div>
             </Reveal>
           </div>

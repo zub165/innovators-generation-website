@@ -910,11 +910,27 @@
   flex-wrap: wrap;
 }
 
-.contactMail {
+.contactMails {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
   margin-top: 24px;
+}
+
+.contactMails a {
   font-size: 15px;
   font-weight: 700;
   color: var(--accent);
+  text-decoration: none;
+}
+
+.contactMails a:hover {
+  text-decoration: underline;
+}
+
+.contactMails span {
+  color: var(--muted);
 }
 
 /* ------------------------------------------------------------------------- */
